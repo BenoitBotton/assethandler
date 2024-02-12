@@ -42,9 +42,10 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "assethandler",
-		Width:  1024,
-		Height: 768,
+		Title:       "assethandler",
+		Width:       1024,
+		Height:      768,
+		StartHidden: true,
 		AssetServer: &assetserver.Options{
 			Assets:  assets,
 			Handler: NewFileLoader(),
@@ -54,9 +55,9 @@ func main() {
 		Bind: []interface{}{
 			app,
 		},
-		Debug: options.Debug{
-			OpenInspectorOnStartup: true,
-		},
+		// Debug: options.Debug{
+		// 	OpenInspectorOnStartup: true,
+		// },
 	})
 
 	if err != nil {
